@@ -68,7 +68,7 @@ def query_two():
 
     cur = conn.cursor()
 
-    sql = "SELECT city FROM cities ORDER BY pop"
+    sql = "SELECT city FROM cities ORDER BY pop DESC"
     cur.execute( sql )
     city = cur.fetchone()
     print(city)
