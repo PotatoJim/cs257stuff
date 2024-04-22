@@ -37,7 +37,7 @@ def query_one():
 
     cur = conn.cursor()
 
-    sql = "SELECT * FROM cities WHERE city LIKE 'Northfield'"
+    sql = "SELECT lat, long FROM cities WHERE city LIKE 'Northfield'"
     
     cur.execute( sql )
 
@@ -46,14 +46,7 @@ def query_one():
     if row == None:
         print("Northfield not in database")
     else:
-        sql = "SELECT lat FROM row"
-        cur.execute()
-        lat = cur.fetchone()
-        sql = "SELECT long FROM row"
-        cur.execute()
-        long = cur.fetchone()
-        print(lat)
-        print(long)
+        print(row)
 
 
     conn.commit()
@@ -75,7 +68,7 @@ def query_two():
 
     cur = conn.cursor()
 
-    sql = "SELECT city FROM SELECT * FROM cities ORDER BY pop"
+    sql = "SELECT city FROM cities ORDER BY pop"
     cur.execute( sql )
     city = cur.fetchone()
     print(city)
