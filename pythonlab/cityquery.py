@@ -71,7 +71,7 @@ def query_two():
     sql = "SELECT city FROM cities ORDER BY pop DESC"
     cur.execute( sql )
     city = cur.fetchone()
-    print(city)
+    print(city[0])
 
 
     conn.commit()
@@ -97,7 +97,7 @@ def query_three():
     sql = "SELECT city FROM cities WHERE state LIKE 'Minnesota' ORDER BY pop ASC"
     cur.execute( sql )
     city = cur.fetchone()
-    print(city)
+    print(city[0])
 
 
     conn.commit()
@@ -105,7 +105,7 @@ def query_three():
     
     return city
 
-def query_three():
+def query_four():
 
     # You will need to change the Port and the Password to use this code
     
@@ -121,22 +121,22 @@ def query_three():
     sql = "SELECT city FROM cities ORDER BY longitude ASC"
     cur.execute( sql )
     city = cur.fetchone()
-    print(city)
+    print(city[0])
     #furthest east
     sql = "SELECT city FROM cities ORDER BY latitude ASC"
     cur.execute( sql )
     city = cur.fetchone()
-    print(city)
+    print(city[0])
     #furthest south
     sql = "SELECT city FROM cities ORDER BY longitude DESC"
     cur.execute( sql )
     city = cur.fetchone()
-    print(city)
+    print(city[0])
     #furthest west
     sql = "SELECT city FROM cities ORDER BY latitude DESC"
     cur.execute( sql )
     city = cur.fetchone()
-    print(city)
+    print(city[0])
 
     conn.commit()
     
@@ -146,3 +146,4 @@ def query_three():
 query_one()
 query_two()
 query_three()
+query_four()
