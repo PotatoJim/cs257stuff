@@ -105,7 +105,43 @@ def query_three():
     
     return city
 
+def query_three():
 
+    # You will need to change the Port and the Password to use this code
+    
+    conn = psycopg2.connect(
+        host="localhost",
+        port=5432,
+        database="vilmsj",
+        user="vilmsj",
+        password="eyebrow398blue")
+
+    cur = conn.cursor()
+    #furthest north
+    sql = "SELECT city FROM cities ORDER BY longitude ASC"
+    cur.execute( sql )
+    city = cur.fetchone()
+    print(city)
+    #furthest east
+    sql = "SELECT city FROM cities ORDER BY latitude ASC"
+    cur.execute( sql )
+    city = cur.fetchone()
+    print(city)
+    #furthest south
+    sql = "SELECT city FROM cities ORDER BY longitude DESC"
+    cur.execute( sql )
+    city = cur.fetchone()
+    print(city)
+    #furthest west
+    sql = "SELECT city FROM cities ORDER BY latitude DESC"
+    cur.execute( sql )
+    city = cur.fetchone()
+    print(city)
+
+    conn.commit()
+    
+    
+    return city
 
 query_one()
 query_two()
