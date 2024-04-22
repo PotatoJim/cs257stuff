@@ -170,7 +170,7 @@ def query_five():
     if len(state) == 2:
         stateLookup = f'SELECT state FROM states WHERE code=\'{state}\''
         cur.execute(stateLookup)
-        state = cur.fetchone()[0]
+        state = cur.fetchone()
     
     if state == None:
         print("State Invalid")
