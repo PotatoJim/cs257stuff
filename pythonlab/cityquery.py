@@ -43,17 +43,21 @@ def query_one():
 
     # fetchone() returns one row that matches your quer
     row = cur.fetchone()
+    if row == None:
+        print("Northfield not in database")
+    else:
+        sql = "SELECT lat FROM row"
+        cur.execute()
+        lat = cur.fetchone()
+        sql = "SELECT long FROM row"
+        cur.execute()
+        long = cur.fetchone()
+        print(lat)
+        print(long)
 
-    # Note: We could access individual items in the row
-    # That is, row[0] would be the name column in the previous example
-    #   ... and row[1] would be the abb column
-
-    #IMPORTANT: This function doesn't actually change the database
-    #If we are trying to change the database ...
-    # ... for example, creating a table
-    #Then we need the following command to finalize our changes
 
     conn.commit()
+    
     
     return row
 
