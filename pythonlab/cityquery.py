@@ -184,7 +184,8 @@ def query_five():
         return 0
     else:
         print(f'Cities in {state}')
-        print(cities)
+        for i in cities:
+            print(i)
 
 
     conn.commit()
