@@ -178,7 +178,7 @@ def query_five():
 
     sql = f'SELECT city FROM cities WHERE state=\'{state}\''
     cur.execute( sql )
-    cities = cur.fetchone()
+    cities = cur.fetchmany()
     if cities == None:
         print("State Invalid")
         return 0
