@@ -37,7 +37,7 @@ def test_query_one():
 
     cur = conn.cursor()
 
-    sql = ""
+    sql = "SELECT name, abb FROM states"
     
     cur.execute( sql )
 
