@@ -37,7 +37,7 @@ def query_one():
 
     cur = conn.cursor()
 
-    sql = "SELECT lat, long FROM cities WHERE city LIKE 'Northfield'"
+    sql = "SELECT latitude, longitude FROM cities WHERE city LIKE 'Northfield'"
     
     cur.execute( sql )
 
