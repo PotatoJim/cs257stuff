@@ -37,7 +37,7 @@ def test_query_one():
 
     cur = conn.cursor()
 
-    sql = "SELECT name, abb FROM states"
+    sql = "SELECT state FROM states"
     
     cur.execute( sql )
 
@@ -73,7 +73,7 @@ def test_query_all():
 
     cur = conn.cursor()
 
-    sql = "SELECT name, abb FROM states"
+    sql = "SELECT state FROM states"
     
     cur.execute( sql )
 
