@@ -71,6 +71,7 @@ def query_two():
     sql = "SELECT city FROM cities ORDER BY pop DESC"
     cur.execute( sql )
     city = cur.fetchone()
+    print("City with Largest Pop.")
     print(city[0])
 
 
@@ -97,6 +98,7 @@ def query_three():
     sql = "SELECT city FROM cities WHERE state LIKE 'Minnesota' ORDER BY pop ASC"
     cur.execute( sql )
     city = cur.fetchone()
+    print("City in MN with Smallest Pop.")
     print(city[0])
 
 
@@ -121,21 +123,25 @@ def query_four():
     sql = "SELECT city FROM cities ORDER BY longitude ASC"
     cur.execute( sql )
     city = cur.fetchone()
+    print("Furthest North")
     print(city[0])
     #furthest east
     sql = "SELECT city FROM cities ORDER BY latitude ASC"
     cur.execute( sql )
     city = cur.fetchone()
+    print("Furthest East")
     print(city[0])
     #furthest south
     sql = "SELECT city FROM cities ORDER BY longitude DESC"
     cur.execute( sql )
     city = cur.fetchone()
+    print("Furthest South")
     print(city[0])
     #furthest west
     sql = "SELECT city FROM cities ORDER BY latitude DESC"
     cur.execute( sql )
     city = cur.fetchone()
+    print("Furthest West")
     print(city[0])
 
     conn.commit()
