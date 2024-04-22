@@ -128,7 +128,7 @@ def test_query_variable():
 
     return None
 
-print( test_connection() )
+print( test_query_one() )
 
 # test_query_all()
 
