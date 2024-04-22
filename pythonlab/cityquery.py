@@ -173,12 +173,13 @@ def query_five():
         print(stateLookup)
         cur.execute(stateLookup)
         state = cur.fetchone()
+    else:
+        state = state.capitalize()
     
     if state == None:
         print("State Invalid")
         return 0
 
-    state = state.capitalize()
     sql = f'SELECT city FROM cities WHERE state LIKE \'{state}\''
     print(sql)
     cur.execute( sql )
