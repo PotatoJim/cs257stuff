@@ -168,7 +168,7 @@ def query_five():
     cur = conn.cursor()
     state = input("Enter a State:")
     if len(state) == 2:
-        stateLookup = f'SELECT state FROM states WHERE code={state}'
+        stateLookup = f'SELECT state FROM states WHERE code=\'{state}\''
         cur.execute(stateLookup)
         state = cur.fetchone()
     
