@@ -1,3 +1,4 @@
+
 # We use the psycopg2 library to help us connec to the Postgres SQL database
 # This library is already installed on stearns.mathcs.carleton.edu
 import psycopg2
@@ -9,10 +10,10 @@ def test_connection():
     
     conn = psycopg2.connect(
         host="localhost",
-        port=9999,   
-        database="mlepinski",
-        user="mlepinski",
-        password="MyDatabasePassword")
+        port=5432,   
+        database="vilmsj",
+        user="vilmsj",
+        password="eyebrow398blue")
 
     if conn is not None:
         print( "Connection Worked!" )
@@ -29,14 +30,14 @@ def test_query_one():
     
     conn = psycopg2.connect(
         host="localhost",
-        port=9999,
-        database="mlepinski",
-        user="mlepinski",
-        password="MyDatabasePassword")
+        port=5432,
+        database="vilmsj",
+        user="vilmsj",
+        password="eyebrow398blue")
 
     cur = conn.cursor()
 
-    sql = "SELECT name, abb FROM states WHERE abb = 'MN' "
+    sql = "CREATE TABLE cities (city text, state text, pop real, latitude real, longitude real) CREATE TABLE states (code text, state text, pop real)"
     
     cur.execute( sql )
 
@@ -65,10 +66,10 @@ def test_query_all():
     
     conn = psycopg2.connect(
         host="localhost",
-        port=9999,
-        database="mlepinski",
-        user="mlepinski",
-        password="MyDatabasePassword")
+        port=5432,
+        database="vilmsj",
+        user="vilmsj",
+        password="eyebrow398blue")
 
     cur = conn.cursor()
 
@@ -100,10 +101,10 @@ def test_query_variable():
 
     conn = psycopg2.connect(
         host="localhost",
-        port=9999,
-        database="mlepinski",
-        user="mlepinski",
-        password="MyDatabasePassword")
+        port=5432,
+        database="vilmsj",
+        user="vilmsj",
+        password="eyebrow398blue")
 
     cur = conn.cursor()
 
