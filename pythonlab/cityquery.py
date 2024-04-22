@@ -172,7 +172,8 @@ def query_five():
         stateLookup = f'SELECT state FROM states WHERE code LIKE \'{state}\''
         print(stateLookup)
         cur.execute(stateLookup)
-        state = cur.fetchone()
+        state = cur.fetchone()[0]
+
     else:
         state = state.capitalize()
     
