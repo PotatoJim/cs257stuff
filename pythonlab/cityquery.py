@@ -177,6 +177,7 @@ def query_five():
         return 0
 
     sql = f'SELECT city FROM cities WHERE state LIKE \'{state}\''
+    print(sql)
     cur.execute( sql )
     cities = cur.fetchmany()
     if cities == None:
