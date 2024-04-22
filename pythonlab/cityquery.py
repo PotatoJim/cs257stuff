@@ -168,7 +168,7 @@ def query_five():
     cur = conn.cursor()
     state = input("Enter a State:")
     if len(state) == 2:
-        stateLookup = f'SELECT state FROM states WHERE code EQUALS {state}'
+        stateLookup = f'SELECT state FROM states WHERE code=\'{state}\''
         cur.execute(stateLookup)
         state = cur.fetchone()[0]
     
@@ -176,7 +176,7 @@ def query_five():
         print("State Invalid")
         return 0
 
-    sql = f'SELECT city FROM cities WHERE state EQUALS {state}'
+    sql = f'SELECT city FROM cities WHERE state=\'{state}\''
     cur.execute( sql )
     cities = cur.fetchmany()
     if cities == None:
