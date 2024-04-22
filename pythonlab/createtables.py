@@ -38,5 +38,5 @@ def makeTable2():
 
     return 1
 
-makeTable1()
-makeTable2()
+print(makeTable1())
+print(makeTable2())

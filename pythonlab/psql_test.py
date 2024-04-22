@@ -55,7 +55,7 @@ def test_query_one():
 
     conn.commit()
     
-    return 1
+    return row
 
 
 
