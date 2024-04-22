@@ -61,6 +61,38 @@ def query_one():
     
     return row
 
+# This function sends an SQL query to the database
+def query_two():
+
+    # You will need to change the Port and the Password to use this code
+    
+    conn = psycopg2.connect(
+        host="localhost",
+        port=5432,
+        database="vilmsj",
+        user="vilmsj",
+        password="eyebrow398blue")
+
+    cur = conn.cursor()
+
+    sql = "SELECT * FROM cities ORDER BY pop"
+    
+    cur.execute( sql )
+
+    # fetchone() returns one row that matches your quer
+    row = cur.fetchone()
+    sql = "SELECT city FROM row"
+    cur.execute( sql )
+    city = cur.fetchone()
+    print(city)
+
+
+    conn.commit()
+    
+    
+    return row
+
 
 
 query_one()
+query_two()
