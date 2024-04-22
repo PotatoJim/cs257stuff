@@ -75,13 +75,7 @@ def query_two():
 
     cur = conn.cursor()
 
-    sql = "SELECT * FROM cities ORDER BY pop"
-    
-    cur.execute( sql )
-
-    # fetchone() returns one row that matches your quer
-    row = cur.fetchone()
-    sql = "SELECT city FROM row"
+    sql = "SELECT city FROM SELECT * FROM cities ORDER BY pop"
     cur.execute( sql )
     city = cur.fetchone()
     print(city)
@@ -90,7 +84,7 @@ def query_two():
     conn.commit()
     
     
-    return row
+    return city
 
 
 
