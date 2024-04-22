@@ -63,4 +63,4 @@ def query_one():
 
 
 
-print(query_one())
+query_one()
