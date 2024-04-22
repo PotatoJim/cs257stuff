@@ -37,7 +37,7 @@ def query_one():
 
     cur = conn.cursor()
 
-    sql = "SELECT * FROM cities WHERE city LIKE Northfield"
+    sql = "SELECT * FROM cities WHERE city LIKE 'Northfield'"
     
     cur.execute( sql )
 
