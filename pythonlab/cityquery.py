@@ -71,7 +71,7 @@ def query_two():
     sql = "SELECT city FROM cities ORDER BY pop DESC"
     cur.execute( sql )
     city = cur.fetchone()
-    print("City with Largest Pop.")
+    print("City with Largest Pop.:")
     print(city[0])
 
 
@@ -98,7 +98,7 @@ def query_three():
     sql = "SELECT city FROM cities WHERE state LIKE 'Minnesota' ORDER BY pop ASC"
     cur.execute( sql )
     city = cur.fetchone()
-    print("City in MN with Smallest Pop.")
+    print("City in MN with Smallest Pop.:")
     print(city[0])
 
 
@@ -119,29 +119,33 @@ def query_four():
         password="eyebrow398blue")
 
     cur = conn.cursor()
+
     #furthest north
-    sql = "SELECT city FROM cities ORDER BY longitude ASC"
-    cur.execute( sql )
-    city = cur.fetchone()
-    print("Furthest North")
-    print(city[0])
-    #furthest east
-    sql = "SELECT city FROM cities ORDER BY latitude ASC"
-    cur.execute( sql )
-    city = cur.fetchone()
-    print("Furthest East")
-    print(city[0])
-    #furthest south
-    sql = "SELECT city FROM cities ORDER BY longitude DESC"
-    cur.execute( sql )
-    city = cur.fetchone()
-    print("Furthest South")
-    print(city[0])
-    #furthest west
     sql = "SELECT city FROM cities ORDER BY latitude DESC"
     cur.execute( sql )
     city = cur.fetchone()
-    print("Furthest West")
+    print("Furthest North:")
+    print(city[0])
+
+    #furthest East
+    sql = "SELECT city FROM cities ORDER BY longitude DESC"
+    cur.execute( sql )
+    city = cur.fetchone()
+    print("Furthest East:")
+    print(city[0])
+
+    #furthest south
+    sql = "SELECT city FROM cities ORDER BY latitude ASC"
+    cur.execute( sql )
+    city = cur.fetchone()
+    print("Furthest South:")
+    print(city[0])
+
+    #furthest west
+    sql = "SELECT city FROM cities ORDER BY longitude ASC"
+    cur.execute( sql )
+    city = cur.fetchone()
+    print("Furthest West:")
     print(city[0])
 
     conn.commit()
@@ -149,7 +153,47 @@ def query_four():
     
     return city
 
+# This function sends an SQL query to the database
+def query_five():
+
+    # You will need to change the Port and the Password to use this code
+    
+    conn = psycopg2.connect(
+        host="localhost",
+        port=5432,
+        database="vilmsj",
+        user="vilmsj",
+        password="eyebrow398blue")
+
+    cur = conn.cursor()
+    state = input("Enter a State:")
+    if len(state) == 2:
+        stateLookup = f'SELECT state FROM states WHERE code LIKE {state}'
+        cur.execute(stateLookup)
+        state = cur.fetchone()[0]
+    
+    if state == None:
+        print("State Invalid")
+        return 0
+
+    sql = f'SELECT city FROM cities WHERE state LIKE {state}'
+    cur.execute( sql )
+    cities = cur.fetchmany()
+    if cities == None:
+        print("State Invalid")
+        return 0
+    else:
+        print(f'Cities in {state}')
+        print(cities)
+
+
+    conn.commit()
+    
+    
+    return 1
+
 query_one()
 query_two()
 query_three()
 query_four()
+query_five()
