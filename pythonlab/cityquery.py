@@ -170,6 +170,7 @@ def query_five():
     if len(state) == 2:
         state.upper()
         stateLookup = f'SELECT state FROM states WHERE code LIKE \'{state}\''
+        print(stateLookup)
         cur.execute(stateLookup)
         state = cur.fetchone()
     
