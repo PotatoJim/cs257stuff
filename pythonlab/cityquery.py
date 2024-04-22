@@ -80,6 +80,33 @@ def query_two():
     return city
 
 
+# This function sends an SQL query to the database
+def query_three():
+
+    # You will need to change the Port and the Password to use this code
+    
+    conn = psycopg2.connect(
+        host="localhost",
+        port=5432,
+        database="vilmsj",
+        user="vilmsj",
+        password="eyebrow398blue")
+
+    cur = conn.cursor()
+
+    sql = "SELECT city FROM cities WHERE state LIKE 'Minnesota' ORDER BY pop ASC"
+    cur.execute( sql )
+    city = cur.fetchone()
+    print(city)
+
+
+    conn.commit()
+    
+    
+    return city
+
+
 
 query_one()
 query_two()
+query_three()
