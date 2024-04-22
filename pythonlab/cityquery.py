@@ -168,7 +168,7 @@ def query_five():
     cur = conn.cursor()
     state = input("Enter a State:")
     if len(state) == 2:
-        state.upper()
+        state = state.upper()
         stateLookup = f'SELECT state FROM states WHERE code LIKE \'{state}\''
         print(stateLookup)
         cur.execute(stateLookup)
@@ -178,7 +178,7 @@ def query_five():
         print("State Invalid")
         return 0
 
-    state.capitalize()
+    state = state.capitalize()
     sql = f'SELECT city FROM cities WHERE state LIKE \'{state}\''
     print(sql)
     cur.execute( sql )
