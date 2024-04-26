@@ -1,4 +1,5 @@
 import flask
+import psycopg2
 
 app = flask.Flask(__name__)
 
@@ -34,6 +35,7 @@ def my_pop(abbrev):
         user="vilmsj",
         password="eyebrow398blue"
     )
+
     cur = conn.cursor()
     abbrev = abbrev.upper()
     stateLookup = f'SELECT pop FROM states WHERE code LIKE \'{abbrev}\''
