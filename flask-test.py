@@ -43,9 +43,8 @@ def my_pop(abbrev):
     pop = cur.fetchone()
     if pop == None:
         return "Invalid State Code"
-    
-    pop = pop[0]
-    return "{pop}"
+
+    return f'{pop[0]}'
 
 
 
