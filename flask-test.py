@@ -43,8 +43,10 @@ def my_pop(abbrev):
     pop = cur.fetchone()
     if pop == None:
         return "Invalid State Code"
+    
+    int_pop = int(pop[0])
 
-    return f'Population of {abbrev} is' + '<h1 style="color:Red">' + f'{pop[0]:,d}' + '<h1>'
+    return f'Population of {abbrev} is' + '<h1 style="color:Red">' + f'{int_pop:,d}' + '<h1>'
 
 
 
