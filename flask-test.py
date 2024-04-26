@@ -22,7 +22,29 @@ def my_sum(num1, num2):
     num1 = int(num1)
     num2 = int(num2)
     sum = num1 + num2
-    return '<h1 style="color:Red">' + f'{sum}' + '</h1>'
+    return f'{num1} + {num2} = ' + '<h1 style="color:Red">' + f'{sum}' + '</h1>'
+
+
+@app.route('/pop/<abbrev>')
+def my_pop(abbrev):
+    conn = psycopg2.connect(
+        host ="localhost",
+        port=5432,
+        database="vilmsj",
+        user="vilmsj",
+        password="eyebrow398blue"
+    )
+    cur = conn.cursor()
+    abbrev = abbrev.upper()
+    stateLookup = f'SELECT pop FROM states WHERE code LIKE \'{abbrev}\''
+    cur.execute(stateLookup)
+    pop = cur.fetchone()
+    if pop == None:
+        return "Invalid State Code"
+    
+    pop = pop[0]
+    return pop
+
 
 
 if __name__ == '__main__':
