@@ -44,7 +44,7 @@ def my_pop(abbrev):
     if pop == None:
         return "Invalid State Code"
 
-    return f'Population of {abbrev} is' + '<h1 style="color:Red">' + f'{pop[0]}' + '<h1>'
+    return f'Population of {abbrev} is' + '<h1 style="color:Red">' + f'{pop[0]:,d}' + '<h1>'
 
 
 
