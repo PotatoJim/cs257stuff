@@ -87,6 +87,6 @@ def movietest():
 
 
 if __name__ == '__main__':
-    #my_port = 5130
-    #app.run(host='0.0.0.0', port = my_port) 
-    movietest()
+    my_port = 5130
+    app.run(host='0.0.0.0', port = my_port) 
+
