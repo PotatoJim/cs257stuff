@@ -68,6 +68,27 @@ def movie():
     print(movie)
     return '<h1 style="color:Blue">' + f'{movie[0]}' + '<h1>' + f'({movie[1]} minutes)'
 
+@app.route('/movie/<time>')
+def movieTimed(time):
+    conn = psycopg2.connect(
+        host = "localhost",
+        port = 5432,
+        database = "vilmsj",
+        user = "vilmsj",
+        password = "eyebrow398blue"
+    )
+    cur = conn.cursor()
+    rt = 6000
+    while rt > time:
+        num = random.randint(0, 45466)
+        query = f'SELECT title, runtime FROM movies WHERE index = {num}'
+        cur.execute(query)
+        movie = cur.fetchone()
+        rt = movie[1]
+
+    return '<h1 style="color:Blue">' + f'{movie[0]}' + '<h1>' + f'({movie[1]} minutes)'
+
+
 def movietest():
     conn = psycopg2.connect(
         host = "localhost",
