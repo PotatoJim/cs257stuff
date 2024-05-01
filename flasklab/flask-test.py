@@ -62,7 +62,7 @@ def movie():
 
     cur = conn.cursor()
     num = random.randint(0, 45466)
-    query = f'SELECT title, runtime FROM movies WHERE index = num'
+    query = f'SELECT title, runtime FROM movies WHERE index = {num}'
     cur.execute(query)
     movie = cur.fetchone()
     print(movie)
@@ -79,7 +79,7 @@ def movietest():
 
     cur = conn.cursor()
     num = random.randint(0, 45466)
-    query = f'SELECT title, runtime FROM movies WHERE index = num'
+    query = f'SELECT title, runtime FROM movies WHERE index = {num}'
     cur.execute(query)
     movie = cur.fetchone()
     print(movie)
