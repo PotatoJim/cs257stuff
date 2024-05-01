@@ -65,12 +65,28 @@ def movie():
     query = f'SELECT title, runtime FROM movies WHERE index = num'
     cur.execute(query)
     movie = cur.fetchone()
+    print(movie)
     return '<h1 style="color:Blue">' + f'{movie[0]}' + '<h1>' + f'({movie[1]} minutes)'
 
+def movietest():
+    conn = psycopg2.connect(
+        host = "localhost",
+        port = 5432,
+        database = "vilmsj",
+        user = "vilmsj",
+        password = "eyebrow398blue"
+    )
 
+    cur = conn.cursor()
+    num = random.randint(0, 45466)
+    query = f'SELECT title, runtime FROM movies WHERE index = num'
+    cur.execute(query)
+    movie = cur.fetchone()
+    print(movie)
 
 
 
 if __name__ == '__main__':
-    my_port = 5130
-    app.run(host='0.0.0.0', port = my_port) 
+    #my_port = 5130
+    #app.run(host='0.0.0.0', port = my_port) 
+    movietest()
