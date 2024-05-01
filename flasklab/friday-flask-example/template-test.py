@@ -22,6 +22,11 @@ def rand(low, high):
 def testThing():
     return render_template("testThing.html")
 
+@app.route('/person')
+def person():
+    names = [""]
+    Name =
+
 if __name__ == '__main__':
     my_port = 5230
     app.run(host='0.0.0.0', port = my_port) 
