@@ -79,7 +79,7 @@ def movieTimed(time):
     )
     cur = conn.cursor()
     rt = 6000
-    while rt > time:
+    while rt > int(time):
         num = random.randint(0, 45466)
         query = f'SELECT title, runtime FROM movies WHERE index = {num}'
         cur.execute(query)
