@@ -22,11 +22,19 @@ def rand(low, high):
 def testThing():
     return render_template("testThing.html")
 
-@app.route('/person')
-def person():
-    names = [""]
-    Name =
+@app.route('/movie')
+def movie():
+    conn = psycopg2.connect(
+        host = "localhost",
+        port = 5432,
+        database = "vilmsj",
+        user = "vilmsj",
+        password = "eyebrow398blue"
+    )
 
+    cur = conn.cursor()
+    num = random.randint(0, 45466)
+    query = f'SELECT title FROM movies'
 if __name__ == '__main__':
     my_port = 5230
     app.run(host='0.0.0.0', port = my_port) 
