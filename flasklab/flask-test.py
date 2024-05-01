@@ -1,5 +1,6 @@
 import flask
 import psycopg2
+import random
 
 app = flask.Flask(__name__)
 
@@ -47,6 +48,24 @@ def my_pop(abbrev):
     int_pop = int(pop[0])
 
     return f'Population of {abbrev} is' + '<h1 style="color:Red">' + f'{int_pop:,d}' + '<h1>'
+
+
+@app.route('/movie')
+def movie():
+    conn = psycopg2.connect(
+        host = "localhost",
+        port = 5432,
+        database = "vilmsj",
+        user = "vilmsj",
+        password = "eyebrow398blue"
+    )
+
+    cur = conn.cursor()
+    num = random.randint(0, 45466)
+    query = f'SELECT title, runtime FROM movies WHERE index = num'
+    cur.execute(query)
+    movie = cur.fetchone()
+    return '<h1 style="color:Blue">' + f'{movie[0]}' + '<h1>' + f'({movie[1]} minutes)'
 
 
 
