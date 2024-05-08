@@ -1,7 +1,4 @@
 function showMe() {
-    pics = document.getElementsByClassName("monge")
-    for (p in pics){
-       p.style.opacity = 100 
-    }
-    
+    pic = document.getElementById("monge")
+    pic.style.opacity = 100
 }
