@@ -1,0 +1,15 @@
+.title{
+    text-align: center;
+    color: rgb(240, 25, 165);
+    font-size: large;
+}
+
+.button{
+    color: rgb(240, 122, 25);
+    font-size: larger;
+    font-style: italic;
+}
+
+.monge{
+    opacity: 0;
+}
